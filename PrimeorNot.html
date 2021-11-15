@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrimeOrNot</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    body {
+  background-color: rgb(29, 29, 41);
+}
+.container{
+    width: 500px;
+    height: 400px;
+    margin-top: 100px;
+    margin-left: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    flex-direction: column;
+}
+h1{
+    color: blue;
+}
+.btn1{
+    margin: 10px;
+    background-color: rgb(142, 216, 30);
+    height: 25px;
+}
+.btn2{
+    margin: 10px;
+    background-color: rgb(255, 47, 64);
+    height: 25px;
+}
+p{
+    margin: 10px;
+    color: white;
+}
+#input{
+    margin: 10px;
+    height: 40px;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prime Number Character</h1>
+    <input id="input" type="number" placeholder="Please Enter The Number">
+    <div class="btn">
+        <button class="btn1" id="btn1" onclick="getInputValue()">Check</button>
+        <button class="btn2" onclick="clearfield()">Clear</button>
+    </div>
+    <p id="result"></p>
+    </div>
+     <script>
+        
+        function getInputValue(){
+            // Selecting the input element and get its value 
+            var number = document.getElementById("input").value;
+           
+            let isPrime = true;
+
+            if (number === 1) {
+    console.log("1 is neither prime nor composite number.");
+}
+
+            else if (number > 1) {
+    for (let i = 2; i < number; i++) {
+        if (number % i == 0) {
+            isPrime = false;
+            break;
+        }
+    }
+
+    if (isPrime) {
+        console.log("Number is Prime");
+        document.getElementById("result").innerHTML = "Number is Prime";
+    } else {
+        console.log("Number is Not Prime");
+        document.getElementById("result").innerHTML = "Number is Not Prime";
+    }
+}
+
+else {
+    console.log("The number is not a prime number.");
+}
+        }
+         function clearfield(){
+             document.getElementById("input").value="";
+         }
+    </script>
+</body>
+</html>
